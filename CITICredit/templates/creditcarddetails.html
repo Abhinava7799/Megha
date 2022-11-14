@@ -1,0 +1,36 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+<body>
+    <div class="flex-container">
+        <h2 style="text-align: center;">Credit card details</h2>
+        <table style="width: 80%;margin-left: auto;margin-right: auto;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Account Number</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Customer Name</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Bank Name</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Card Type Code</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Card Type Name</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Card Limit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for creditCard in creditdetails %}
+                <tr>
+                    <th scope="row" style="border: 1px solid black;padding: 12px 15px;">{{ creditCard.accountnumber }}
+                    </th>
+                    <td style="border: 1px solid black;">{{ creditCard.customername }}</td>
+                    <td style="border: 1px solid black;">{{ creditCard.bankname }}</td>
+                    <td style="border: 1px solid black;">{{ creditCard.cardtypecode }}</td>
+                    <td style="border: 1px solid black;">{{ creditCard.cardtypename }}</td>
+                    <td style="border: 1px solid black;">{{ creditCard.cardlimit }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>

@@ -1,0 +1,41 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+<body>
+    <div>
+        <h2 style="text-align: center;">Employee details</h2>
+        <table style="width: 80%;margin-left: auto;margin-right: auto;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Employee Code</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">First Name</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Last Name</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Job Role</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Manager Name</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Date of Hiring</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Salary</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Commission</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Department Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for emp in employeedes %}
+                <tr>
+                    <th scope="row" style="border: 1px solid black;padding: 12px 15px;">{{ emp.empcode }}</th>
+                    <td style="border: 1px solid black;">{{ emp.empfname }}</td>
+                    <td style="border: 1px solid black;">{{ emp.emplname }}</td>
+                    <td style="border: 1px solid black;">{{ emp.job }}</td>
+                    <td style="border: 1px solid black;">{{ emp.manager }}</td>
+                    <td style="border: 1px solid black;">{{ emp.hiredate }}</td>
+                    <td style="border: 1px solid black;">{{ emp.salary }}</td>
+                    <td style="border: 1px solid black;">{{ emp.commission }}</td>
+                    <td style="border: 1px solid black;">{{ emp.deptcode }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>

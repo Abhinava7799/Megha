@@ -1,0 +1,29 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+<body>
+    <div>
+        <h2 style="text-align: center;">Department Details</h2>
+        <table style="width: 60%;margin-left: auto;margin-right: auto;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Department Code</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Job Role</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for depart in departdetails %}
+                <tr>
+                    <th scope="row" style="border: 1px solid black;padding: 12px 15px;">{{ depart.deptcode }}</th>
+                    <td style="border: 1px solid black;">{{ depart.job }}</td>
+                    <td style="border: 1px solid black;">{{ depart.location }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>

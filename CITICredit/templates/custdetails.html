@@ -1,0 +1,29 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+<body>
+    <div>
+        <h2 style="text-align: center;">Customer details</h2>
+        <table style="width: 60%;margin-left: auto;margin-right: auto;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Account Number</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Customer Name</th>
+                    <th style="border: 1px solid black;padding: 12px 15px;">Bank Branch</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cust in customerdetails %}
+                <tr>
+                    <th scope="row" style="border: 1px solid black;padding: 12px 15px;">{{ cust.accountnumber }}</th>
+                    <td style="border: 1px solid black;">{{ cust.customername }}</td>
+                    <td style="border: 1px solid black;">{{ cust.branch }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
